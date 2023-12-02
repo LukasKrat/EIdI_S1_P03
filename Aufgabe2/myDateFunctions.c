@@ -296,13 +296,16 @@ long long toUnixtime(int date[]) {
     long long Ud = (j - 1970) * 365 + Ul + dj[m-1] + D-1 + dl;
     //printf("Ud: %d\n",Ud);
 
-    long long UH = Ud * 24 + h;
+    //Old: //long long UH = Ud * 24 + h;
+    long long UH_s = Ud * ONEDAY + h * ONEHOUR;
     //printf("UH: %d\n",UH);
 
-    long long UM = UH * 60 + M;
+    //Old: //long long UM = UH * 60 + M;
+    long long UM = /*UH * 60 +*/ M;
     //printf("UM: %d\n",UM);
+
     long long Us = UM * 60 + s;
     //printf("Us: %d\n",Us);
 
-    return Us;
+    return Us + UH_s;
 }
