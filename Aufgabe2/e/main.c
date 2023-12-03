@@ -2,7 +2,7 @@
 #include "myDateFunctions.h"
 
 int main() {
-    int input[12] = {2023,12,1,15,12,0};
+    int input[12] = {2000,1,1,14,05,0};
     printf("%d\n", toUnixtime(input));
     long long ts = toUnixtime(input);
     printf("%d\n", toUnixtime(input));
