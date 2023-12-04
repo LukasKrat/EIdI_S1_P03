@@ -287,7 +287,7 @@ long long toUnixtime(int date[]) {
 
     int dj[12] = {0,31,59,90,120,151,181,212,243,273,304,334};
 
-    int dl = checkLeapYear(j) == 1 ? 1 : 0;
+    int dl = checkLeapYear(j) == 1 && m > 2 ? 1 : 0;
     //printf("dl: %d\n",dl);
 
     long long Ul = (j-1 - 1968)/4 - (j-1-1900)/100 + (j-1-1600)/400;

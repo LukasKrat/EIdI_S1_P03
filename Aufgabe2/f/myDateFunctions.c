@@ -326,3 +326,17 @@ const char *unixtimeToString(long long timeStamp)
     strftime(str, sizeof(str), "%d.%m.%Y %H:%M:%S", date);
     return str;
 }
+
+/// Compares two dates ’first’ and ’second’
+/// \param first
+/// \param second
+/// \return Returns 1 if ’first’ > ’second’, -1 if ’first’ \< ’second’,
+/// if ’first’ equals ’second’
+int compare(int first[], int second[]) {
+    long long int ufirst = toUnixtime(first);
+    long long int usecond = toUnixtime(second);
+    
+    if (ufirst > usecond) return 1;
+    else if (ufirst < usecond) return -1;
+    else if (ufirst == usecond) return 0;
+}
