@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include "myDateFunctions.h"
 
-#define DAILY 0
-#define WEEKLY 1
-#define TWEEKLY 2
+#define DAILY 1
+#define WEEKLY 2
+#define TWEEKLY 3
 
 /// @brief This function prompts the user to provide a year, month and day via the console/terminal.
 /// @param output The array in which the values of the user-input should be stored.
 /// @return The number of input-parameters recognized and read from the console.
-int requestInput(int output[1])
+int requestInput(int output[8])
 {
     puts("Bitte geben Sie <Startdatum(<JAHR> <Monat> <Tag> <Stunde> <Minute> <Sekunde>)> <Haeufigkeit> <Terminanzahl> ein:");
     /// @brief This scanf-call is used the receive a the user-input (as decimals) from standard-in and stores the values in the provided output-array via dereferencing. This way it is not necessary to return the values via a return-statement.
@@ -17,14 +17,14 @@ int requestInput(int output[1])
 
 /// @brief This function sets all elements of the passed integer-array to the value of 0.
 /// @param days The integer-array which's elements should be set to the value of 0.
-void setMonthArrayToZero(int days[365])
+void setAppArrayToZero(long long int days[365])
 {
     for (int w = 0; w < 365; w++) {
         days[w] = 0;
     }
 }
 
-int createAppointmentsSeries(int input[8], int output[])
+int createAppointmentsSeries(int input[8], long long int output[])
 {
     int year = input[0];
     int month = input[1];
@@ -36,6 +36,8 @@ int createAppointmentsSeries(int input[8], int output[])
     int modeIndex = input[6];
     int appc = input[7];
 
+    printf("%d\n", modeIndex);
+
     switch (modeIndex)
     {
     case DAILY:
@@ -45,6 +47,7 @@ int createAppointmentsSeries(int input[8], int output[])
         {
             int d[] = {year, month, day+i, hour, minute, second}; 
             output[i] = toUnixtime(d);
+            printf("%d\n",d[0]);
         }
         
         break;
@@ -74,7 +77,8 @@ int createAppointmentsSeries(int input[8], int output[])
 
 int main()
 {
-    int input[8] = {2000, 1, 1, 14, 05, 0};
+    //int input[8] = {2000, 1, 1, 14, 05, 0};
+    int input[8];
 
     printf("%lld\n", toUnixtime(input));
     long long ts = toUnixtime(input);
@@ -84,6 +88,8 @@ int main()
 
     long long int terminserie[365];
     //----------
+
+    setAppArrayToZero(terminserie);
 
     int exitFlag = 0;
     do
@@ -99,6 +105,12 @@ int main()
         }
 
         createAppointmentsSeries(input, terminserie);
+
+        for (int i = 0; i < sizeof(terminserie)/sizeof(long long int); i++)
+        {
+            printf("%lld -> %s\n", terminserie[i], unixtimeToString(terminserie[i]));
+        }
+        
 
     } while (exitFlag == 0);
 
