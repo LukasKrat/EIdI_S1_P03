@@ -340,3 +340,11 @@ int compare(int first[], int second[]) {
     else if (ufirst < usecond) return -1;
     else if (ufirst == usecond) return 0;
 }
+
+int dateInRange(int date[], int dateLowerLimit[], int dateUpperLimit[]) {
+    long long int udate = toUnixtime(date);
+    long long int udateLL = toUnixtime(dateLowerLimit);
+    long long int udateUL = toUnixtime(dateUpperLimit);
+
+    return udateLL <= udate && udate <= udateUL ? 1 : 0;
+}
