@@ -160,6 +160,12 @@ int main()
 
             int parsedArgumentsCount = requestInput(input);
 
+            if (checkDateValid(input[0],input[1],input[2] != 1) ||
+                input[3] > 23 || input[3] < 0 ||
+                input[4] > 59 || input[4] < 0 ||
+                input[5] > 59 || input[5] < 0
+                ) break;
+
             if (parsedArgumentsCount < 8)
             {
                 /// Move the "console-cursor" to the end.
