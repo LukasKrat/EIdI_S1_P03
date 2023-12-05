@@ -5,6 +5,9 @@
 #define WEEKLY 2
 #define TWEEKLY 3
 
+#define MAXAPPOINTMENTSERIES 5
+#define MAXAPPOINTMENTSPERSERIES 365
+
 /// @brief This function prompts the user to provide a year, month and day via the console/terminal.
 /// @param output The array in which the values of the user-input should be stored.
 /// @return The number of input-parameters recognized and read from the console.
@@ -32,9 +35,9 @@ int getUserInputMainMenu()
 
 /// @brief This function sets all elements of the passed integer-array to the value of 0.
 /// @param days The integer-array which's elements should be set to the value of 0.
-void setAppArrayToZero(long long int days[365])
+void setAppArrayToZero(long long int days[MAXAPPOINTMENTSPERSERIES])
 {
-    for (int w = 0; w < 365; w++)
+    for (int w = 0; w < MAXAPPOINTMENTSPERSERIES; w++)
     {
         days[w] = 0;
     }
@@ -104,7 +107,7 @@ int main()
     printf("%lld\n", ts);
     printf("%s\n", unixtimeToString(ts));
 
-    long long int terminserie[5][365];
+    long long int terminserie[MAXAPPOINTMENTSERIES][MAXAPPOINTMENTSPERSERIES];
     //----------
 /*
     setAppArrayToZero(terminserie);
@@ -133,7 +136,7 @@ int main()
 */
     //-------------
 
-    for (int i = 0; i < sizeof(terminserie) / sizeof(long long int[365]); i++) {
+    for (int i = 0; i < sizeof(terminserie) / sizeof(long long int[MAXAPPOINTMENTSPERSERIES]); i++) {
         setAppArrayToZero(terminserie[i]);
     }
 
@@ -146,7 +149,7 @@ int main()
         {
             int emptySeriesIndex = -1;
 
-            for (int i = 0; i < sizeof(terminserie) / sizeof(long long int[365]); i++)
+            for (int i = 0; i < sizeof(terminserie) / sizeof(long long int[MAXAPPOINTMENTSPERSERIES]); i++)
             {
                 if (terminserie[i][0] == 0)
                 {
@@ -171,15 +174,19 @@ int main()
         {
             int seriesIndex = -1;
 
-            for (int i = 0; i < sizeof(terminserie) / sizeof(long long int[365]); i++)
+            for (int i = 0; i < sizeof(terminserie) / sizeof(long long int[MAXAPPOINTMENTSPERSERIES]); i++)
             {
                 if (terminserie[i][0] > 0) printf("%d)\n", i);
             }
+
+            printf("%d) Cancel\n", MAXAPPOINTMENTSERIES);
             
             scanf("%d", &seriesIndex);
             getchar();
             
-            for (int i = 0; i < 365; i++)
+            if (seriesIndex >= MAXAPPOINTMENTSERIES) break;
+
+            for (int i = 0; i < MAXAPPOINTMENTSPERSERIES; i++)
             {
                 if (terminserie[seriesIndex][i] > 0) printf("%s\n", unixtimeToString(terminserie[seriesIndex][i]));
             }
