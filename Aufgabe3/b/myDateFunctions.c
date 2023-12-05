@@ -341,6 +341,11 @@ int compare(int first[], int second[]) {
     else if (ufirst == usecond) return 0;
 }
 
+/// @brief Checks whether the given date is in the given range.
+/// @param date The date which should be checked.
+/// @param dateLowerLimit The range's lower limit (included).
+/// @param dateUpperLimit The range's upper limit (included).
+/// @return 
 int dateInRange(int date[], int dateLowerLimit[], int dateUpperLimit[]) {
     long long int udate = toUnixtime(date);
     long long int udateLL = toUnixtime(dateLowerLimit);
