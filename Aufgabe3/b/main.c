@@ -98,43 +98,9 @@ int createAppointmentsSeries(int input[8], long long int output[])
 
 int main()
 {
-    // int input[8] = {2000, 1, 1, 14, 05, 0};
+    
     int input[8];
-
-    printf("%lld\n", toUnixtime(input));
-    long long ts = toUnixtime(input);
-    printf("%lld\n", toUnixtime(input));
-    printf("%lld\n", ts);
-    printf("%s\n", unixtimeToString(ts));
-
     long long int terminserie[MAXAPPOINTMENTSERIES][MAXAPPOINTMENTSPERSERIES];
-    //----------
-/*
-    setAppArrayToZero(terminserie);
-
-    int exitFlag = 0;
-    do
-    {
-
-        int parsedArgumentsCount = requestInput(input);
-
-        if (parsedArgumentsCount < 8)
-        {
-            /// Move the "console-cursor" to the end.
-            while (getchar() != '\n')
-                continue;
-        }
-
-        createAppointmentsSeries(input, terminserie);
-
-        for (int i = 0; i < sizeof(terminserie) / sizeof(long long int); i++)
-        {
-            printf("%lld -> %s\n", terminserie[i], unixtimeToString(terminserie[i]));
-        }
-
-    } while (exitFlag == 0);
-*/
-    //-------------
 
     for (int i = 0; i < sizeof(terminserie) / sizeof(long long int[MAXAPPOINTMENTSPERSERIES]); i++) {
         setAppArrayToZero(terminserie[i]);
