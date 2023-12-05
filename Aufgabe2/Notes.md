@@ -1,8 +1,20 @@
 ## a)
+Vorteile: 
+- Vergleichbarkeit
+- Einheitlichkeit in der Darstellung
+
+Nachteile:
+- Erfordert externe Umrechnung in lokale Zeit basierend auf Informationen, die nicht im einzelnen Wert enthalten sind
 
 ## b)
+- in die im weiteren Verlauf erstellte toUnixtime-Funktion kann der größte positive 32-Bit Integer-Wert als Paramter übergeben werden (2,147,483,647).
+- Probleme:
+    - Datum liegt in naher Zukunft
+    - Bei Überlauf könnten abhängige Systeme gestört werden
 
 ## c)
+- der Datentyp kann auf bspw. einen 64-Bit Integer geändert werden
+- Weiterhin kann es in Zukunft zu einem Überlauf kommen
 
 ## d)
 Formel:
