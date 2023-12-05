@@ -43,7 +43,10 @@ void setAppArrayToZero(long long int days[MAXAPPOINTMENTSPERSERIES])
     }
 }
 
-int createAppointmentsSeries(int input[8], long long int output[])
+/// @brief Creates a series if appointments.
+/// @param input The input-parameters (start-date in UTC, interval-mode, number of appointments).
+/// @param output The array to which the result should be written.
+void createAppointmentsSeries(int input[8], long long int output[])
 {
     int year = input[0];
     int month = input[1];
