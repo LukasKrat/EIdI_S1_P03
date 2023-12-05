@@ -35,7 +35,7 @@ Formel:
 > Tag-Schaltjahrkorrektur übergebenes Jahr: $d_l$
 > Wenn $j$ ein Schaltjahr ist, dann setze $d_l=1$, ansonsten setze $d_l=0$
 > 
-> Anzahl vergangener Schaltjahre: $U_l = (j-1970)/4-(j-1900)/100-(j-1600)/400$
+> Anzahl vergangener Schaltjahre: $U_l = (j-1968)/4-(j-1900)/100-(j-1600)/400$
 > 
 > Tage seit 1970: $U_d = (j-1970)*365 + U_l + d_j + d_l$
 >
