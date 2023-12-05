@@ -9,8 +9,8 @@ Nachteile:
 ## b)
 - in die im weiteren Verlauf erstellte toUnixtime-Funktion kann der größte positive 32-Bit Integer-Wert als Paramter übergeben werden (2,147,483,647).
 - Probleme:
-    - Datum liegt in naher Zukunft
     - Bei Überlauf könnten abhängige Systeme gestört werden
+        - Datum liegt in naher Zukunft
 
 ## c)
 - der Datentyp kann auf bspw. einen 64-Bit Integer geändert werden
