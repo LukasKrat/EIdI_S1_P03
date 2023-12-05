@@ -276,6 +276,9 @@ void printCalendarForYear(int y)
     }
 }
 
+/// @brief Converts the given date to unix-time.
+/// @param date 
+/// @return 
 long long toUnixtime(int date[])
 {
     int j = date[0];
@@ -285,13 +288,7 @@ long long toUnixtime(int date[])
     int M = date[4];
     int s = date[5];
 
-    // printf("%d\n",j);
-    // printf("%d\n",m);
-    // printf("%d\n",D);
-    // printf("%d\n",h);
-    // printf("%d\n",M);
-    // printf("%d\n",s);
-
+    /// Array of days passed since start of year at the beginning of each month.
     int dj[12] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
 
     int dl = checkLeapYear(j) == 1 && m > 2 ? 1 : 0;

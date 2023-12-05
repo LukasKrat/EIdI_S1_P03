@@ -7,7 +7,7 @@ Nachteile:
 - Erfordert externe Umrechnung in lokale Zeit basierend auf Informationen, die nicht im einzelnen Wert enthalten sind
 
 ## b)
-- in die im weiteren Verlauf erstellte toUnixtime-Funktion kann der größte positive 32-Bit Integer-Wert als Paramter übergeben werden (2,147,483,647).
+- in die im weiteren Verlauf erstellte toUnixtime-Funktion kann der größte positive oder neutrale 32-Bit Integer-Wert als Paramter übergeben werden (2,147,483,647).
 - Probleme:
     - Bei Überlauf könnten abhängige Systeme gestört werden
         - Datum liegt in naher Zukunft
