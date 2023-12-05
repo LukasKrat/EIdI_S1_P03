@@ -3,6 +3,6 @@
 
 int main() {
     int input[12] = {2023,12,1,15,12,0};
-    printf("%d", toUnixtime(input));
+    printf("%lld\n", toUnixtime(input));
     return 0;
 }
