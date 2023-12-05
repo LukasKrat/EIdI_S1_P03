@@ -104,11 +104,11 @@ int main()
                 continue;
         }
 
-        if (checkDateValid(input[0],input[1],input[2] != 1) ||
+        if (checkDateValid(input[0],input[1],input[2]) != 1 ||
                 input[3] > 23 || input[3] < 0 ||
                 input[4] > 59 || input[4] < 0 ||
                 input[5] > 59 || input[5] < 0
-                ) continue;
+                ) break;
 
         createAppointmentsSeries(input, terminserie);
 
