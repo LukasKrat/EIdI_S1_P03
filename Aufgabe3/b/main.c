@@ -184,7 +184,7 @@ int main()
             scanf("%d", &seriesIndex);
             getchar();
             
-            if (seriesIndex >= MAXAPPOINTMENTSERIES) break;
+            if (seriesIndex >= MAXAPPOINTMENTSERIES || seriesIndex < 0) break;
 
             for (int i = 0; i < MAXAPPOINTMENTSPERSERIES; i++)
             {
